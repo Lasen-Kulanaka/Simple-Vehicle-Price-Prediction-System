@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vehicle Price Prediction System</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Vehicle Price Prediction System</h1>
+    <p class="subtitle">Enter the vehicle details below to estimate the market price.</p>
+
+    <form action="/" method="POST">
+
+        <div class="grid">
+
+            <!-- Basic Information -->
+            <div class="card">
+                <h2>Basic Information</h2>
+
+                <label for="brand">Brand</label>
+                <select name="brand">
+                    <option value="selected-hidden" class="selected-hidden">Select</option>
+                    <option value="toyota">TOYOTA</option>
+                    <option value="honda">HONDA</option>
+                    <option value="nissan">NISSAN</option>
+                    <option value="suzuki">SUZUKI</option>
+                    <option value="mitsubishi">MITSUBISHI</option>
+                    <option value="hyundai">HYUNDAI</option>
+                    <option value="kia">KIA</option>
+                    <option value="mazda">MAZDA</option>
+                    <option value="mercedez-benz">MERCEDES-BENZ</option>
+                    <option value="micro">MICRO</option>
+                    <option value="perodua">PERODUA</option>
+                    <option value="tata">TATA</option>
+                    <option value="other">OTHER</option>
+                </select>
+
+                <label for="yom">Year of Manufacture (YOM)</label>
+                <input type="number" name="yom" required>
+
+                <label for="leasing">Leasing Facilities</label>
+                <select name="leasing">
+                    <option value="selected-hidden" class="selected-hidden">Select</option>
+                    <option value="ls-ongoing">Ongoing Lease</option>
+                    <option value="ls-no-ongoing">No Leasing</option>
+                </select>
+            </div>
+
+            <!-- Technical Specs -->
+            <div class="card">
+                <h2>Technical Specs</h2>
+
+                <label>Engine Capacity (cc)</label>
+                <input type="number" name="engine" required>
+
+                <label>Mileage (KM)</label>
+                <input type="number" name="mileage" required>
+
+                <label for="fuel">Fuel Type</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="fuel" value="Petrol" checked> Petrol</label>
+                    <label><input type="radio" name="fuel" value="Diesel"> Diesel</label>
+                    <label><input type="radio" name="fuel" value="Hybrid"> Hybrid</label>
+                    <label><input type="radio" name="fuel" value="Electric"> Electric</label>
+                </div>
+
+                <label for="gear">Gear</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="gear" value="Automatic" checked> Automatic</label>
+                    <label><input type="radio" name="gear" value="Manual"> Manual</label>
+                </div>
+
+                <label for="condition">Condition</label>
+                <select name="condition">
+                    <option value="selected hidden">Select</option>
+                    <option value="new">Brand New</option>
+                    <option value="used">Registered (Used)</option>
+                </select>
+            </div>
+
+            <!-- Features -->
+            <div class="card">
+                <h2>Features & Options</h2>
+
+                <label for="ac">Air Condition</label>
+                <select name="ac">
+                    <option value="selected-hidden" class="selected-hidden">Select</option>
+                    <option value="ac-available">Available</option>
+                    <option value="ac-not-available">Not Available</option>
+                </select>
+
+                <label for="ps">Power Steering</label>
+                <select name="ps">
+                    <option value="selected-hidden" class="selected-hidden">Select</option>
+                    <option value="ps-available">Available</option>
+                    <option value="ps-not-available">Not Available</option>
+                </select>
+
+                <label for="pm">Power Mirror</label>
+                <select name="pm">
+                    <option value="selected-hidden" class="selected-hidden">Select</option>
+                    <option value="pm-available">Available</option>
+                    <option value="pm-not-available">Not Available</option>
+                </select>
+
+                <label for="pw">Power Window</label>
+                <select name="pw">
+                    <option value="selected-hidden" class="selected-hidden">Select</option>
+                    <option value="pw-available">Available</option>
+                    <option value="pw-not-available">Not Available</option>
+                </select>
+
+            </div>
+
+        </div>
+
+        <button type="submit" class="btn">Predict Price</button>
+
+    </form>
+
+    
+    <div class="result">
+        {% if prediction %}
+        <p>
+            Estimated Price: LKR {{ prediction }} lakhs
+        </p>
+        {% endif %}
+    </div>
+    
+
+</div>
+
+</body>
+</html>
