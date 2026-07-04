@@ -1,4 +1,9 @@
 {
+  "functions": {
+    "website/app.py": {
+      "runtime": "@vercel/python"
+    }
+  },
   "rewrites": [
     {
       "source": "/(.*)",
